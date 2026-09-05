@@ -718,7 +718,7 @@ app.post("/api/orders/:id/payment", async (req, res) => {
     } catch (error) {
         await client.query("ROLLBACK");
 
-        console.error(error);
+        console.error("PAYMENT ERROR:", error);
 
         if (error.code === "23505") {
             return res.status(409).json({
