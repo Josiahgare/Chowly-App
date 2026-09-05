@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS payments (
     status VARCHAR(20) NOT NULL DEFAULT 'PAID'
         CHECK (status IN ('PAID')),
     payment_type VARCHAR(20) NOT NULL 
-        CHECK (payment_type IN ('CASH', 'CARD', 'TRANSFER')),
+        CHECK (payment_type IN ('PRETEND')),
     paid_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
