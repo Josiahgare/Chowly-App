@@ -231,7 +231,8 @@ AI was used as a working tool throughout this build, in line with the assignment
 
 **Tools used**
 
-* An AI coding assistant integrated into the editor, used for scaffolding, code review, refactoring, and debugging.
+* **ChatGPT** — used for planning, drafting the schema and route logic, and working through problems in conversation.
+* **Kiro** — an AI development environment used inside the editor for scaffolding, code review, refactoring, and debugging directly against the codebase.
 
 **What AI was asked to do**
 
