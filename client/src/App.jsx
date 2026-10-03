@@ -19,11 +19,11 @@ import {
 const ITEM_IMAGES = {
     // FOOD
     "Jollof Rice":
-        "https://images.unsplash.com/photo-1664993193323-9bc2c73de5df?w=600&q=70&auto=format&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/A_Nigeria_Jollof_Rice_with_chicken.jpg/960px-A_Nigeria_Jollof_Rice_with_chicken.jpg",
     "Fried Rice":
         "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=70&auto=format&fit=crop",
     "Grilled Chicken":
-        "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=70&auto=format&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Al-bek_restaurant_Bengaluru_full_chicken.jpg/960px-Al-bek_restaurant_Bengaluru_full_chicken.jpg",
     "Beef Steak":
         "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=70&auto=format&fit=crop",
     "Chicken Wings":
@@ -33,11 +33,11 @@ const ITEM_IMAGES = {
     "Coke":
         "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=600&q=70&auto=format&fit=crop",
     "Fanta":
-        "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?w=600&q=70&auto=format&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Fanta_Magic.jpg/960px-Fanta_Magic.jpg",
     "Chapman":
         "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600&q=70&auto=format&fit=crop",
     "Bottled Water":
-        "https://images.unsplash.com/photo-1560023907-5f339617ea30?w=600&q=70&auto=format&fit=crop",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/A_bottle_of_cold_water_with_droplets.jpg/960px-A_bottle_of_cold_water_with_droplets.jpg",
     "Fresh Orange Juice":
         "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=70&auto=format&fit=crop"
 };
