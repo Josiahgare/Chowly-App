@@ -3,3 +3,4 @@ dist/
 .env
 **/.env
 terminal_commands.txt
+vercel.json
