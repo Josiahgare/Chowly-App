@@ -12,6 +12,54 @@ import {
     makePayment
 } from "./api";
 
+// ======================================================
+// MENU IMAGES (hosted — no local assets)
+// ======================================================
+
+const ITEM_IMAGES = {
+    // FOOD
+    "Jollof Rice":
+        "https://images.unsplash.com/photo-1664993193323-9bc2c73de5df?w=600&q=70&auto=format&fit=crop",
+    "Fried Rice":
+        "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=70&auto=format&fit=crop",
+    "Grilled Chicken":
+        "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=70&auto=format&fit=crop",
+    "Beef Steak":
+        "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=70&auto=format&fit=crop",
+    "Chicken Wings":
+        "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=70&auto=format&fit=crop",
+
+    // DRINK
+    "Coke":
+        "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=600&q=70&auto=format&fit=crop",
+    "Fanta":
+        "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?w=600&q=70&auto=format&fit=crop",
+    "Chapman":
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600&q=70&auto=format&fit=crop",
+    "Bottled Water":
+        "https://images.unsplash.com/photo-1560023907-5f339617ea30?w=600&q=70&auto=format&fit=crop",
+    "Fresh Orange Juice":
+        "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=70&auto=format&fit=crop"
+};
+
+const FOOD_FALLBACK_IMAGE =
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=70&auto=format&fit=crop";
+
+const DRINK_FALLBACK_IMAGE =
+    "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=70&auto=format&fit=crop";
+
+const HERO_IMAGE =
+    "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=900&q=70&auto=format&fit=crop";
+
+function getItemImage(item) {
+    return (
+        ITEM_IMAGES[item.name] ||
+        (item.category === "FOOD"
+            ? FOOD_FALLBACK_IMAGE
+            : DRINK_FALLBACK_IMAGE)
+    );
+}
+
 function App() {
     const [mode, setMode] = useState("customer");
 
@@ -62,6 +110,7 @@ function Customer() {
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState("");
     const [placingOrder, setPlacingOrder] = useState(false);
+    const [heroImgError, setHeroImgError] = useState(false);
 
     useEffect(() => {
         loadMenu();
@@ -253,7 +302,19 @@ function Customer() {
                 </div>
 
                 <div className="hero-icon">
-                    🍽️
+                    {heroImgError ? (
+                        "🍽️"
+                    ) : (
+                        <img
+                            className="hero-img"
+                            src={HERO_IMAGE}
+                            alt="Freshly prepared food"
+                            loading="lazy"
+                            onError={() =>
+                                setHeroImgError(true)
+                            }
+                        />
+                    )}
                 </div>
             </section>
 
@@ -464,6 +525,7 @@ function Customer() {
 
 function MenuCard({ item, onAdd }) {
     const [added, setAdded] = useState(false);
+    const [imgError, setImgError] = useState(false);
 
     function handleAdd() {
         onAdd(item);
@@ -478,17 +540,35 @@ function MenuCard({ item, onAdd }) {
     return (
         <div className="menu-card">
 
-            <div className="menu-card-top">
-                <div className="food-icon">
-                    {item.category === "FOOD"
-                        ? "🍛"
-                        : "🥤"}
-                </div>
+            {imgError ? (
+                <div className="menu-card-top">
+                    <div className="food-icon">
+                        {item.category === "FOOD"
+                            ? "🍛"
+                            : "🥤"}
+                    </div>
 
-                <span className="category">
-                    {item.category}
-                </span>
-            </div>
+                    <span className="category">
+                        {item.category}
+                    </span>
+                </div>
+            ) : (
+                <div className="menu-card-media">
+                    <img
+                        className="menu-card-img"
+                        src={getItemImage(item)}
+                        alt={item.name}
+                        loading="lazy"
+                        onError={() =>
+                            setImgError(true)
+                        }
+                    />
+
+                    <span className="category">
+                        {item.category}
+                    </span>
+                </div>
+            )}
 
             <div className="menu-card-content">
                 <h3>{item.name}</h3>
